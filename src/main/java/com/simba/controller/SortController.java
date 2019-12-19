@@ -3,6 +3,7 @@ package com.simba.controller;
 
 import com.simba.service.Sort;
 import com.simba.service.impl.BubbleSort;
+import com.simba.service.impl.InsertionSort;
 import com.simba.service.impl.SelectionSort;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
@@ -23,8 +24,10 @@ public class SortController {
   @Test
   public void testSort(){
 //    Sort sort = new BubbleSort();
-    Sort sort = new SelectionSort();
-    int arr[] = sort.sort(initArr());
+//    Sort sort = new SelectionSort();
+//    Sort sort = new InsertionSort();
+    InsertionSort sort = new InsertionSort();
+    int arr[] = sort.binaryInserionSort(initArr());
     scan(arr);
   }
 

@@ -26,6 +26,4 @@ public class BubbleSort implements Sort {
     }
     return sortArr;
   }
-
-
 }
