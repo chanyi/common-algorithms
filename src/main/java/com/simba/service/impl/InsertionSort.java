@@ -3,6 +3,7 @@ package com.simba.service.impl;
 import com.simba.service.Sort;
 import java.sql.Array;
 import javax.sound.midi.Soundbank;
+import org.junit.Test;
 import sun.security.util.Length;
 
 /**
@@ -101,14 +102,29 @@ public class InsertionSort implements Sort {
    * @param sortArr
    * @return
    */
-  public int[] InsertionSort(int[] sortArr){
+  public int[] shellInsertionSort(int[] sortArr){
     //选择一个增量序列
     int[] increaseOrder = {5,3,1};
     //按照增量序列排序
-    for(int i =0;i<increaseOrder.length;i++){
-      for (int j =0 ;j <sortArr.length;j+=increaseOrder[i]){
+    for(int k =0;k<increaseOrder.length;k++){
+      int delta = increaseOrder[k];
+      int temp = 0;
+      for (int t =delta ;t <sortArr.length; t++){
         //拿到排序的数列
-//        if()
+        for(int i =t ;i<sortArr.length;i += delta){
+          if(sortArr[i]<sortArr[i-delta]){
+            int j =0;
+            temp = sortArr[i];
+            for(j = i-delta;j>= 0;j -= delta){
+              if(sortArr[j]> temp){
+                sortArr[j+delta] = sortArr[j];
+              }else{
+                break;
+              }
+            }
+            sortArr[j+delta] = temp;
+          }
+        }
       }
     }
     return sortArr;

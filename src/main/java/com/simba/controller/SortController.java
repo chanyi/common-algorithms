@@ -27,7 +27,7 @@ public class SortController {
 //    Sort sort = new SelectionSort();
 //    Sort sort = new InsertionSort();
     InsertionSort sort = new InsertionSort();
-    int arr[] = sort.binaryInserionSort(initArr());
+    int arr[] = sort.shellInsertionSort(initArr());
     scan(arr);
   }
 
